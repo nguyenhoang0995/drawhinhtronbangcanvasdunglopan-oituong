@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="800" height="400" style="border:1px solid green;"></canvas>
+    <script>
+        class Circle {
+            radius; // bổ sung thuộc tính toạ độ
+            color; // phương thức vẽ hình tròn bằng canvas
+            x;
+            y;
+            constructor(x, y, r, c) {
+                this.x = x;
+                this.y = y;
+                this.radius = r;
+                this.color = c;
+            }
+            getRadius() {
+                return this.radius;
+            }
+            getArea() {
+                return this.radius * this.radius * 3,14;
+            }
+            draw() {
+                let cvas = document.getElementById('canvas').getContext('2d');
+                cvas.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+                cvas.fillStyle = this.color;
+                cvas.fill();
+            }
+        }
+        let c1 = new Circle(200, 300, 40, 'red');
+        let c2 = new Circle(30, 40, 20, 'green');
+        let c3 = new Circle(40, 50, 50, 'violet');
+        let c4 = new Circle(50, 60, 30, 'yelow');
+        alert(c1.getArea());
+        c1.draw();
+        c2.draw();
+        c3.draw();
+        c4.draw();
+    </script>
+</body>
+
+</html>
